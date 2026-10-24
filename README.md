@@ -26,7 +26,7 @@ GitHub Settings → Pages → Source is set to **GitHub Actions**. Every push to
 - Update slide order and per-image crop positions in `site/slideshow.js`. Keep the initial image and preload in `index.html` synchronized when changing the first slide.
 - Six original campaign photographs are included as optimized WebP files, in 640, 1280, and 2400-pixel widths. EXIF rotation is applied, metadata is removed, and full aspect ratios are preserved. Keep the same three sizes when replacing a photograph. CSS handles viewport cropping.
 - `railed-logo.png` is a transparent, tightly cropped extraction of the supplied metallic logo, with its proportions preserved.
-- Images change every five seconds with a 1.3-second crossfade. The next image is decoded before switching. Slow or failed downloads keep the current image visible. Background tabs suspend rotation. Reduced-motion visitors see a still image with entrance/hover animations disabled.
+- Images change every five seconds with a 1.3-second crossfade and a gentle 3.5% zoom, alternating inward and outward. The zoom continues through the outgoing fade and resets only when hidden. The next image is decoded before switching. Slow or failed downloads keep the current image visible. Background tabs suspend rotation and photo motion. Reduced-motion visitors see a still image with entrance/hover animations disabled.
 - Restore an earlier version by reverting the relevant commit on `main`; the same workflow publishes the restored source.
 
 ## Photo mapping

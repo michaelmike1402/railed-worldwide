@@ -9,6 +9,7 @@ a:focus-visible { outline: 2px solid #fff; outline-offset: 6px; }
 .backdrop, .shade { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
 .frame { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focal, 50% 43%); opacity: 0; transition: opacity 1.3s ease-in-out; }
 .frame.is-visible { opacity: 1; }
+.frame { transform-origin: var(--focal, 50% 43%); }
 .shade { z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,.05) 28%, rgba(0,0,0,.04) 40%, rgba(0,0,0,.66) 72%, rgba(0,0,0,.9) 100%); }
 .masthead { display: flex; justify-content: center; }
 .brand { width: clamp(130px, 38vw, 174px); height: auto; filter: drop-shadow(0 2px 8px #0009); }
@@ -35,7 +36,7 @@ h1 span { display: block; }
   .purchase { width: 260px; min-height: 56px; }
   .socials { justify-content: flex-end; gap: 32px; }
   .shade { background: linear-gradient(90deg, #0009 0%, #0002 65%), linear-gradient(180deg, #0007 0%, #0000 25%, #0001 45%, #000b 100%); }
-  .frame { object-position: var(--desktop-focal, 50% 36%); }
+  .frame { object-position: var(--desktop-focal, 50% 36%); transform-origin: var(--desktop-focal, 50% 36%); }
 }
 @media (min-width: 1200px) { .campaign { padding-right: 64px; padding-left: 64px; } }
 @media (max-height: 680px) and (max-width: 767px) { .campaign { padding-top: max(14px, env(safe-area-inset-top)); } .brand { width: 124px; } .hero { padding-top: 80px; padding-bottom: 16px; } .eyebrow { margin-bottom: 10px; } h1 { font-size: clamp(40px, 12vw, 66px); margin-bottom: 12px; } .tagline { margin-bottom: 16px; } }
