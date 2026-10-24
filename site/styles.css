@@ -1,0 +1,44 @@
+@font-face { font-family: Anton; src: url('assets/anton.woff2') format('woff2'); font-style: normal; font-weight: 400; font-display: swap; }
+:root { color-scheme: dark; font-family: Arial, Helvetica, sans-serif; color: #f7f5f0; background: #0a0a0a; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-width: 280px; }
+body { overflow-x: clip; }
+a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+a:focus-visible { outline: 2px solid #fff; outline-offset: 6px; }
+.campaign { position: relative; isolation: isolate; min-height: 100svh; min-height: 100dvh; display: grid; grid-template-rows: auto 1fr auto; padding: max(22px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left)); }
+.backdrop, .shade { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
+.frame { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focal, 50% 43%); opacity: 0; transition: opacity 1.3s ease-in-out; }
+.frame.is-visible { opacity: 1; }
+.shade { z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,.05) 28%, rgba(0,0,0,.04) 40%, rgba(0,0,0,.66) 72%, rgba(0,0,0,.9) 100%); }
+.masthead { display: flex; justify-content: center; }
+.brand { width: clamp(130px, 38vw, 174px); height: auto; filter: drop-shadow(0 2px 8px #0009); }
+.hero { align-self: end; padding-top: 120px; padding-bottom: 28px; animation: arrive .8s ease-out both; }
+.eyebrow { margin: 0 0 14px; font-size: 10px; line-height: 1.4; letter-spacing: .22em; font-weight: 700; }
+h1 { font-family: Anton, Impact, 'Arial Narrow', sans-serif; font-size: clamp(44px, 13.6vw, 82px); line-height: 1.04; letter-spacing: -.025em; font-weight: 400; margin: 0 0 18px; }
+h1 span { display: block; }
+.tagline { font-size: clamp(9px, 2.55vw, 12px); font-weight: 500; letter-spacing: .075em; line-height: 1.65; margin: 0 0 23px; }
+.purchase { min-height: 54px; padding: 0 22px; display: flex; align-items: center; justify-content: space-between; gap: 28px; width: 100%; max-width: 330px; background: #f4f2ec; color: #111; font-size: 12px; font-weight: 800; letter-spacing: .085em; border: 1px solid #f4f2ec; transition: background .2s, transform .2s, box-shadow .2s; }
+.arrow { font-size: 24px; line-height: 1; font-weight: 400; transition: transform .2s; }
+.purchase:active { transform: scale(.98); }
+.footer { border-top: 1px solid #ffffff35; padding-top: 8px; }
+.socials { display: flex; align-items: center; justify-content: center; gap: 30px; }
+.socials a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; font-size: 11px; letter-spacing: .03em; transition: opacity .2s; }
+.socials svg { width: 16px; height: 16px; flex: none; }
+@media (hover: hover) { .purchase:hover { background: #fff; box-shadow: 0 4px 22px #0003; } .purchase:hover .arrow { transform: translateX(4px); } .socials a:hover { opacity: .7; } }
+@media (min-width: 768px) {
+  .campaign { padding: max(30px, env(safe-area-inset-top)) 48px max(20px, env(safe-area-inset-bottom)); }
+  .brand { width: 178px; }
+  .hero { padding-top: 100px; padding-bottom: 36px; }
+  h1 { font-size: clamp(82px, 8.6vw, 140px); }
+  .eyebrow { font-size: 11px; margin-bottom: 19px; }
+  .tagline { font-size: 11px; letter-spacing: .15em; margin-bottom: 26px; }
+  .purchase { width: 260px; min-height: 56px; }
+  .socials { justify-content: flex-end; gap: 32px; }
+  .shade { background: linear-gradient(90deg, #0009 0%, #0002 65%), linear-gradient(180deg, #0007 0%, #0000 25%, #0001 45%, #000b 100%); }
+  .frame { object-position: var(--desktop-focal, 50% 36%); }
+}
+@media (min-width: 1200px) { .campaign { padding-right: 64px; padding-left: 64px; } }
+@media (max-height: 680px) and (max-width: 767px) { .campaign { padding-top: max(14px, env(safe-area-inset-top)); } .brand { width: 124px; } .hero { padding-top: 80px; padding-bottom: 16px; } .eyebrow { margin-bottom: 10px; } h1 { font-size: clamp(40px, 12vw, 66px); margin-bottom: 12px; } .tagline { margin-bottom: 16px; } }
+@media (max-height: 540px) and (min-width: 600px) { .campaign { padding-top: 14px; } .brand { width: 110px; } .hero { padding: 20px 0 12px; } h1 { font-size: 48px; margin-bottom: 10px; } .eyebrow { margin-bottom: 8px; } .tagline { margin-bottom: 12px; } .purchase { min-height: 46px; } .footer { padding-top: 0; } }
+@keyframes arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
